@@ -71,6 +71,69 @@
       "choco": "figma",
       "winget": "Figma.Figma",
       "fallbackUrl": "https://www.figma.com/downloads/"
+    },
+    {
+      "name": "GitHub Desktop",
+      "description": "GitHub GUI client",
+      "checkCommand": "Test-Path \"C:\\Users\\MICHBOGU\\AppData\\Local\\GitHubDesktop\\GitHubDesktop.exe\"",
+      "choco": "github-desktop",
+      "winget": "GitHub.GitHubDesktop"
+    },
+    {
+      "name": "GitKraken",
+      "description": "Cross-platform Git client",
+      "checkCommand": "Test-Path \"C:\\Users\\MICHBOGU\\AppData\\Local\\gitkraken\\Update.exe\"",
+      "choco": "gitkraken",
+      "winget": "Axosoft.GitKraken"
+    },
+    {
+      "name": "Sourcetree",
+      "description": "Atlassian Git client",
+      "checkCommand": "Test-Path \"C:\\Users\\MICHBOGU\\AppData\\Local\\SourceTree\\SourceTree.exe\"",
+      "choco": "sourcetree",
+      "winget": "Atlassian.Sourcetree"
+    },
+    {
+      "name": "Windows Terminal",
+      "description": "Modern terminal for Windows",
+      "checkCommand": "Get-AppxPackage Microsoft.WindowsTerminal -EA SilentlyContinue",
+      "choco": "microsoft-windows-terminal",
+      "winget": "Microsoft.WindowsTerminal"
+    },
+    {
+      "name": "PowerShell 7",
+      "description": "Cross-platform PowerShell",
+      "checkCommand": "pwsh --version",
+      "choco": "powershell-core",
+      "winget": "Microsoft.PowerShell"
+    },
+    {
+      "name": "TablePlus",
+      "description": "Database GUI",
+      "checkCommand": "Test-Path \"C:\\Users\\MICHBOGU\\AppData\\Roaming\\TablePlus\\TablePlus.exe\"",
+      "choco": "tableplus",
+      "winget": "TablePlus.TablePlus"
+    },
+    {
+      "name": "Redis Insight",
+      "description": "Redis GUI",
+      "checkCommand": "Test-Path \"C:\\Users\\MICHBOGU\\AppData\\Roaming\\RedisInsight\\RedisInsight.exe\"",
+      "choco": "redisinsight",
+      "winget": "Redis.RedisInsight"
+    },
+    {
+      "name": "Helm",
+      "description": "Kubernetes package manager",
+      "checkCommand": "helm version",
+      "choco": "kubernetes-helm",
+      "winget": "Helm.Helm"
+    },
+    {
+      "name": "ShareX",
+      "description": "Screen capture tool",
+      "checkCommand": "Test-Path \"C:\\Program Files\\ShareX\\ShareX.exe\"",
+      "choco": "sharex",
+      "winget": "ShareX.ShareX"
     }
   ]
 }
