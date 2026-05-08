@@ -1,0 +1,42 @@
+{
+  "_comment": "Base config — the essentials most developers need. Fork this repo and edit to match your team. Remove what you don't use, add what you do.",
+  "settings": {
+    "preferChocolatey": true,
+    "fallbackToWinget": true,
+    "logFile": "setup-log.txt"
+  },
+  "tools": [
+    {
+      "name": "Git",
+      "description": "Version control system",
+      "checkCommand": "git --version",
+      "choco": "git",
+      "winget": "Git.Git",
+      "fallbackUrl": "https://git-scm.com/download/win"
+    },
+    {
+      "name": "Visual Studio Code",
+      "description": "Code editor",
+      "checkCommand": "code --version",
+      "choco": "vscode",
+      "winget": "Microsoft.VisualStudioCode",
+      "fallbackUrl": "https://code.visualstudio.com/download"
+    },
+    {
+      "name": "Node.js",
+      "description": "JavaScript runtime",
+      "checkCommand": "node --version",
+      "choco": "nodejs-lts",
+      "winget": "OpenJS.NodeJS.LTS",
+      "fallbackUrl": "https://nodejs.org/en/download/"
+    },
+    {
+      "name": "Python",
+      "description": "Python programming language",
+      "checkCommand": "python --version",
+      "choco": "python",
+      "winget": "Python.Python.3.13",
+      "fallbackUrl": "https://www.python.org/downloads/windows/"
+    }
+  ]
+}

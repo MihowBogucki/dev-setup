@@ -1,0 +1,76 @@
+{
+  "_comment": "Personal config — extends base.json and adds your own tools. This file is yours; keep it in your own dotfiles repo. Add, remove, or override anything in base.json here.",
+  "extends": "./base.json",
+  "tools": [
+    {
+      "_comment": "--- your team / stack tools (examples below — swap for your own) ---"
+    },
+    {
+      "name": "Docker Desktop",
+      "description": "Container platform",
+      "checkCommand": "docker --version",
+      "choco": "docker-desktop",
+      "winget": "Docker.DockerDesktop",
+      "fallbackUrl": "https://www.docker.com/products/docker-desktop"
+    },
+    {
+      "name": ".NET SDK",
+      "description": "Microsoft .NET SDK",
+      "checkCommand": "dotnet --version",
+      "choco": "dotnet-sdk",
+      "winget": "Microsoft.DotNet.SDK.8",
+      "fallbackUrl": "https://dotnet.microsoft.com/download"
+    },
+    {
+      "name": "Azure CLI",
+      "description": "Microsoft Azure command-line interface",
+      "checkCommand": "az --version",
+      "choco": "azure-cli",
+      "winget": "Microsoft.AzureCLI",
+      "fallbackUrl": "https://aka.ms/installazurecliwindows"
+    },
+    {
+      "name": "kubectl",
+      "description": "Kubernetes command-line tool",
+      "checkCommand": "kubectl version --client",
+      "choco": "kubernetes-cli",
+      "winget": "Kubernetes.kubectl",
+      "fallbackUrl": "https://kubernetes.io/docs/tasks/tools/install-kubectl-windows/"
+    },
+    {
+      "name": "k9s",
+      "description": "Kubernetes terminal UI",
+      "checkCommand": "k9s version",
+      "choco": "k9s",
+      "winget": "Derailed.k9s",
+      "fallbackUrl": "https://k9scli.io/topics/install/"
+    },
+    {
+      "_comment": "--- personal tools ---"
+    },
+    {
+      "name": "Postman",
+      "description": "API testing and development platform",
+      "checkCommand": "postman --version",
+      "choco": "postman",
+      "winget": "Postman.Postman",
+      "fallbackUrl": "https://www.postman.com/downloads/"
+    },
+    {
+      "name": "Fork",
+      "description": "Git client with a visual interface",
+      "checkCommand": "fork --version",
+      "choco": "fork",
+      "winget": "Fork.Fork",
+      "fallbackUrl": "https://git-fork.com/"
+    },
+    {
+      "name": "Figma",
+      "description": "Collaborative design tool",
+      "checkCommand": "figma --version",
+      "choco": "figma",
+      "winget": "Figma.Figma",
+      "fallbackUrl": "https://www.figma.com/downloads/"
+    }
+  ]
+}
