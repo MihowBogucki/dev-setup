@@ -3,6 +3,7 @@
   "extends": "./base.json",
   "tools": [
     {
+<<<<<<< Updated upstream
       "_comment": "--- your team / stack tools (examples below — swap for your own) ---"
     },
     {
@@ -71,6 +72,19 @@
       "choco": "figma",
       "winget": "Figma.Figma",
       "fallbackUrl": "https://www.figma.com/downloads/"
+=======
+      "_comment": "── Add your tools here, or use 'Snapshot this machine' to auto-populate ──"
+    },
+    {
+      "_example": {
+        "name": "Postman",
+        "description": "API testing platform",
+        "checkCommand": "postman --version",
+        "choco": "postman",
+        "winget": "Postman.Postman",
+        "fallbackUrl": "https://www.postman.com/downloads/"
+      }
+>>>>>>> Stashed changes
     },
     {
       "name": "GitHub Desktop",
