@@ -1,82 +1,37 @@
 {
-  "_comment": "Personal config — extends base.json and adds your own tools. This file is yours; keep it in your own dotfiles repo. Add, remove, or override anything in base.json here.",
+  "_readme": [
+    "This is YOUR personal config — fork this repo and make it yours.",
+    "It extends base.json (team tools) and layers your own extras on top.",
+    "",
+    "HOW TO POPULATE THIS FILE:",
+    "  Option A — Snapshot this machine  (recommended)",
+    "    Run setup-cli.ps1 → 'Snapshot this machine'",
+    "    It scans what's installed, lets you pick what to keep,",
+    "    encrypts the result to snapshot.enc, and adds tools here.",
+    "    On a new machine: clone this repo → 'Restore snapshot' → done.",
+    "",
+    "  Option B — Add tools manually",
+    "    Copy the example entry below and fill in the fields.",
+    "    winget search <name>  →  use the Id column as 'winget'",
+    "    choco search <name>   →  use the package name as 'choco'",
+    "",
+    "FIELDS:",
+    "  name         required  display name, must be unique",
+    "  description  optional  shown in the picker",
+    "  checkCommand required  PowerShell expression — truthy = already installed",
+    "  choco        optional  chocolatey package name",
+    "  winget       optional  winget package ID",
+    "  fallbackUrl  optional  shown if both package managers fail",
+    "",
+    "To override a base.json entry (e.g. pin a version), add an entry",
+    "with the same 'name' here — yours wins."
+  ],
   "extends": "./base.json",
   "tools": [
-    {
-<<<<<<< Updated upstream
-      "_comment": "--- your team / stack tools (examples below — swap for your own) ---"
-    },
-    {
-      "name": "Docker Desktop",
-      "description": "Container platform",
-      "checkCommand": "docker --version",
-      "choco": "docker-desktop",
-      "winget": "Docker.DockerDesktop",
-      "fallbackUrl": "https://www.docker.com/products/docker-desktop"
-    },
-    {
-      "name": ".NET SDK",
-      "description": "Microsoft .NET SDK",
-      "checkCommand": "dotnet --version",
-      "choco": "dotnet-sdk",
-      "winget": "Microsoft.DotNet.SDK.8",
-      "fallbackUrl": "https://dotnet.microsoft.com/download"
-    },
-    {
-      "name": "Azure CLI",
-      "description": "Microsoft Azure command-line interface",
-      "checkCommand": "az --version",
-      "choco": "azure-cli",
-      "winget": "Microsoft.AzureCLI",
-      "fallbackUrl": "https://aka.ms/installazurecliwindows"
-    },
-    {
-      "name": "kubectl",
-      "description": "Kubernetes command-line tool",
-      "checkCommand": "kubectl version --client",
-      "choco": "kubernetes-cli",
-      "winget": "Kubernetes.kubectl",
-      "fallbackUrl": "https://kubernetes.io/docs/tasks/tools/install-kubectl-windows/"
-    },
-    {
-      "name": "k9s",
-      "description": "Kubernetes terminal UI",
-      "checkCommand": "k9s version",
-      "choco": "k9s",
-      "winget": "Derailed.k9s",
-      "fallbackUrl": "https://k9scli.io/topics/install/"
-    },
-    {
-      "_comment": "--- personal tools ---"
-    },
-    {
-      "name": "Postman",
-      "description": "API testing and development platform",
-      "checkCommand": "postman --version",
-      "choco": "postman",
-      "winget": "Postman.Postman",
-      "fallbackUrl": "https://www.postman.com/downloads/"
-    },
-    {
-      "name": "Fork",
-      "description": "Git client with a visual interface",
-      "checkCommand": "fork --version",
-      "choco": "fork",
-      "winget": "Fork.Fork",
-      "fallbackUrl": "https://git-fork.com/"
-    },
-    {
-      "name": "Figma",
-      "description": "Collaborative design tool",
-      "checkCommand": "figma --version",
-      "choco": "figma",
-      "winget": "Figma.Figma",
-      "fallbackUrl": "https://www.figma.com/downloads/"
-=======
-      "_comment": "── Add your tools here, or use 'Snapshot this machine' to auto-populate ──"
-    },
-    {
-      "_example": {
+
+    { "_comment": "── Add your tools here, or use 'Snapshot this machine' to auto-populate ──" },
+
+    { "_example": {
         "name": "Postman",
         "description": "API testing platform",
         "checkCommand": "postman --version",
@@ -84,70 +39,7 @@
         "winget": "Postman.Postman",
         "fallbackUrl": "https://www.postman.com/downloads/"
       }
->>>>>>> Stashed changes
-    },
-    {
-      "name": "GitHub Desktop",
-      "description": "GitHub GUI client",
-      "checkCommand": "Test-Path \"C:\\Users\\MICHBOGU\\AppData\\Local\\GitHubDesktop\\GitHubDesktop.exe\"",
-      "choco": "github-desktop",
-      "winget": "GitHub.GitHubDesktop"
-    },
-    {
-      "name": "GitKraken",
-      "description": "Cross-platform Git client",
-      "checkCommand": "Test-Path \"C:\\Users\\MICHBOGU\\AppData\\Local\\gitkraken\\Update.exe\"",
-      "choco": "gitkraken",
-      "winget": "Axosoft.GitKraken"
-    },
-    {
-      "name": "Sourcetree",
-      "description": "Atlassian Git client",
-      "checkCommand": "Test-Path \"C:\\Users\\MICHBOGU\\AppData\\Local\\SourceTree\\SourceTree.exe\"",
-      "choco": "sourcetree",
-      "winget": "Atlassian.Sourcetree"
-    },
-    {
-      "name": "Windows Terminal",
-      "description": "Modern terminal for Windows",
-      "checkCommand": "Get-AppxPackage Microsoft.WindowsTerminal -EA SilentlyContinue",
-      "choco": "microsoft-windows-terminal",
-      "winget": "Microsoft.WindowsTerminal"
-    },
-    {
-      "name": "PowerShell 7",
-      "description": "Cross-platform PowerShell",
-      "checkCommand": "pwsh --version",
-      "choco": "powershell-core",
-      "winget": "Microsoft.PowerShell"
-    },
-    {
-      "name": "TablePlus",
-      "description": "Database GUI",
-      "checkCommand": "Test-Path \"C:\\Users\\MICHBOGU\\AppData\\Roaming\\TablePlus\\TablePlus.exe\"",
-      "choco": "tableplus",
-      "winget": "TablePlus.TablePlus"
-    },
-    {
-      "name": "Redis Insight",
-      "description": "Redis GUI",
-      "checkCommand": "Test-Path \"C:\\Users\\MICHBOGU\\AppData\\Roaming\\RedisInsight\\RedisInsight.exe\"",
-      "choco": "redisinsight",
-      "winget": "Redis.RedisInsight"
-    },
-    {
-      "name": "Helm",
-      "description": "Kubernetes package manager",
-      "checkCommand": "helm version",
-      "choco": "kubernetes-helm",
-      "winget": "Helm.Helm"
-    },
-    {
-      "name": "ShareX",
-      "description": "Screen capture tool",
-      "checkCommand": "Test-Path \"C:\\Program Files\\ShareX\\ShareX.exe\"",
-      "choco": "sharex",
-      "winget": "ShareX.ShareX"
     }
+
   ]
 }

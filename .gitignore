@@ -1,0 +1,3 @@
+# Generated locally — contains machine-specific paths and hostnames.
+# Never commit this; each developer generates their own with "Snapshot this machine".
+snapshot.json
