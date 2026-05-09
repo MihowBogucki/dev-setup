@@ -26,10 +26,11 @@ The TUI guides you through everything — no flags to memorise.
 
 ```
 1. Run the script            →  .\setup-cli.ps1
-2. Scan your machine         →  find tools you have that aren't in your config yet
-3. Build your base           →  edit base.json with your team's standard tools
-4. Build your personal setup →  edit personal.json with your own extras
-5. Commit & share            →  anyone on your team can clone and run
+2. Scan your machine         →  find tools installed but not yet in your config
+3. Encrypt the snapshot      →  safe to push even to a public repo
+4. Build your config         →  edit base.json (team) and personal.json (you)
+5. Commit & share            →  anyone can clone, run, and be set up in minutes
+6. New machine               →  clone → Restore snapshot → install
 ```
 
 Already-installed tools are detected and skipped. The script tries **Chocolatey first, winget second** — it will offer to install Chocolatey for you if it isn't present, or skip it entirely and use winget if you prefer.
@@ -45,7 +46,7 @@ cd C:\Source\dev-setup
 .\setup-cli.ps1
 ```
 
-The interactive menu handles the rest — including a **Snapshot** option that scans your machine and tells you what's installed but not yet in your config.
+The interactive menu handles the rest. Use **Snapshot this machine** to find tools not yet in your config, **encrypt** the result so it's safe to push to a public repo, then **Restore snapshot** on your next machine to get back to the same setup instantly.
 
 ---
 
@@ -55,8 +56,11 @@ The interactive menu handles the rest — including a **Snapshot** option that s
 dev-setup/
 ├── setup-cli.ps1    ← Interactive TUI (arrow keys, checkboxes, spinners)
 ├── base.json        ← Team tools — shared, everyone gets these
-└── personal.json    ← Your tools — extends base.json, adds your extras
+├── personal.json    ← Your tools — extends base.json, adds your extras
+└── snapshot.enc     ← Encrypted machine snapshot — safe to commit & push
 ```
+
+> `snapshot.json` is gitignored — it's a local working file. Only the encrypted `snapshot.enc` is committed.
 
 ---
 
@@ -115,6 +119,43 @@ Open `base.json` or `personal.json` and add an entry to the `tools` array:
 Only `name` and `checkCommand` are required. Omit the rest if a package manager doesn't have the tool.
 
 The **Help** option in the TUI menu walks through this interactively.
+
+---
+
+## Menu
+
+The main menu is split into sections:
+
+**Install**
+- `Install all tools` — install everything in your config
+- `Pick tools to install` — checkbox list to choose a subset
+- `Dry run` — preview what would be installed, nothing runs
+
+**Config**
+- `Snapshot this machine` — scan for installed tools not in your config, then optionally encrypt the result to `snapshot.enc`
+- `Restore snapshot` — decrypt `snapshot.enc` and pick tools to add to `personal.json`
+- `Push to Git` — commit and push your config (including `snapshot.enc`) to GitHub
+
+**Other**
+- `Help` — inline guide to customising base & personal configs
+
+---
+
+## Snapshot encryption
+
+Snapshots are encrypted with **AES-256-CBC** and a passphrase you choose. The passphrase is never stored anywhere — keep it somewhere safe (e.g. your password manager).
+
+**On machine A:**
+```
+Snapshot this machine → prompted to encrypt → snapshot.enc saved
+Push to Git           → snapshot.enc committed and pushed
+```
+
+**On machine B:**
+```
+git clone / git pull
+Run setup-cli.ps1 → Restore snapshot → enter passphrase → pick tools to install
+```
 
 ---
 
