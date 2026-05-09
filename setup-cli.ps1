@@ -732,7 +732,15 @@ function Save-Snapshot {
             }
         }
     } else {
-        Write-Host "  ${GN}  Your config already covers everything found on this machine.${RS}"
+        Write-Host "  ${GN}✓  Your config already covers everything found on this machine.${RS}"
+        Write-Host ""
+        Write-Host "  ${WH}  Your ${CY}personal.json${WH} is your portable setup — it contains all $($cfg.tools.Count) tools${RS}"
+        Write-Host "  ${WH}  and has no machine-specific data, so it's safe to push as-is.${RS}"
+        Write-Host ""
+        Write-Host "  ${GR}  → Choose ${WH}Push to Git${GR} from the menu to save it to GitHub.${RS}"
+        Write-Host "  ${GR}    On your next machine: clone the repo and run ${WH}Install all tools${GR}.${RS}"
+        Write-Host ""
+        Write-Host "  ${GR}  (${WH}snapshot.enc${GR} is only created when tools are found that aren't in your config yet.)${RS}"
     }
     Write-Host ""
 }
